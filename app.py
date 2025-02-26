@@ -7,8 +7,9 @@ app = Flask(__name__)
 @app.route('/rs-pdf', methods=['GET'])
 def rs_pdf():
     try:
-        # 固定的PDF文件路径
-        pdf_path = ('梁慧_运维开发_广科大_2024.pdf')  # 替换为你的PDF文件路径
+        # 获取当前脚本的目录
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        pdf_path = os.path.join(current_dir, '梁慧_运维开发_广科大_2024.pdf')
 
         # 检查文件是否存在
         if not os.path.exists(pdf_path):
